@@ -1,0 +1,260 @@
+/* ====================================================================
+   PREMIUM DIGITAL WEDDING INVITATION - RESPONSIVE STYLESHEET
+   ==================================================================== */
+
+/* Tablet & Smaller Desktops (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .invitation-section {
+    padding: 5rem 1.25rem;
+  }
+
+  .couple-grid {
+    gap: 1.5rem;
+  }
+
+  .couple-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .couple-photo-frame {
+    width: 190px;
+    height: 240px;
+  }
+}
+
+/* Mobile & Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Section Spacing */
+  .invitation-section {
+    padding: 4rem 1rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  /* Envelope Responsive Adjustments */
+  .envelope-wrapper {
+    width: 94vw;
+    height: 310px;
+  }
+
+  .envelope-top-flap {
+    border-width: 170px 47vw 0 47vw;
+  }
+
+  .envelope-pocket-left {
+    border-width: 155px 0 155px 47vw;
+  }
+
+  .envelope-pocket-right {
+    border-width: 155px 47vw 155px 0;
+  }
+
+  .envelope-pocket-bottom {
+    border-width: 0 47vw 160px 47vw;
+  }
+
+  .wax-seal-btn {
+    top: 115px;
+    width: 78px;
+    height: 78px;
+  }
+
+  .envelope-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .envelope-card-couple {
+    font-size: 1.4rem;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 5rem 1rem 4rem;
+  }
+
+  .hero-monogram-crest {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 1rem;
+  }
+
+  .hero-corner-decor {
+    width: 70px;
+    height: 70px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 280px;
+    margin: 2rem auto 0;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  /* Couple Section */
+  .couple-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .couple-center-divider {
+    order: 2;
+    margin: 0.5rem 0;
+  }
+
+  .couple-grid > .couple-card:first-child {
+    order: 1;
+  }
+
+  .couple-grid > .couple-card:last-child {
+    order: 3;
+  }
+
+  /* Story Timeline Mobile layout (single-column left-aligned) */
+  .story-timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    text-align: left !important;
+    padding-left: 50px;
+    padding-right: 0;
+    margin-bottom: 2.2rem;
+  }
+
+  .timeline-dot {
+    left: 13px !important;
+    right: auto !important;
+  }
+
+  /* Countdown Grid */
+  .countdown-timer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+
+  .countdown-box {
+    padding: 1.2rem 0.5rem;
+    min-width: unset;
+  }
+
+  .countdown-value {
+    font-size: 1.9rem;
+  }
+
+  .countdown-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* Events & Itinerary */
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .event-card {
+    padding: 2.2rem 1.4rem;
+  }
+
+  .itinerary-container {
+    padding: 1.8rem 1.2rem;
+  }
+
+  /* Gallery Grid */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .gallery-item {
+    aspect-ratio: 1/1;
+  }
+
+  /* RSVP Form */
+  .rsvp-form-card {
+    padding: 2rem 1.4rem;
+  }
+
+  .attendance-pills {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* Bank Cards */
+  .bank-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  /* Floating Navigation */
+  .floating-nav {
+    bottom: 16px;
+    padding: 0.35rem 0.4rem;
+    max-width: 95vw;
+  }
+
+  .floating-nav-link span {
+    display: none; /* Icon-only on mobile for sleek look */
+  }
+
+  .floating-nav-link {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .floating-music-btn {
+    bottom: 16px;
+    left: 16px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .lightbox-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .lightbox-prev { left: 8px; }
+  .lightbox-next { right: 8px; }
+}
+
+/* Very Small Mobile (< 380px) */
+@media (max-width: 380px) {
+  .envelope-wrapper {
+    height: 270px;
+  }
+
+  .envelope-top-flap {
+    border-width: 145px 47vw 0 47vw;
+  }
+
+  .envelope-pocket-left, .envelope-pocket-right {
+    border-width: 135px 47vw 135px 0;
+  }
+
+  .envelope-pocket-bottom {
+    border-width: 0 47vw 140px 47vw;
+  }
+
+  .wax-seal-btn {
+    top: 95px;
+    width: 68px;
+    height: 68px;
+  }
+
+  .countdown-timer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}

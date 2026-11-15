@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#FAF8F5" />
+  <title>The Wedding of Alexander & Sophia | Digital Invitation</title>
+  <meta name="description" content="You are joyfully invited to celebrate the wedding of Alexander Christian Hayes & Sophia Isabella Vance on Saturday, September 18, 2027 in Beverly Hills, CA." />
+  
+  <!-- OpenGraph / Social Sharing -->
+  <meta property="og:title" content="The Wedding of Alexander & Sophia" />
+  <meta property="og:description" content="Saturday, September 18, 2027 • The Glasshouse Conservatory, Beverly Hills" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/couple/couple-hero.jpg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Supabase JS Client via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body class="locked">
+  <!-- Falling Rose Petals Canvas -->
+  <canvas id="petals-canvas"></canvas>
+
+  <!-- Background Music Audio Element -->
+  <audio id="wedding-audio" preload="auto"></audio>
+
+  <!-- ====================================================================
+       A. ANIMATED ENVELOPE OPENING SCREEN (FIRST INTERACTION)
+       ==================================================================== -->
+  <div id="envelope-screen" class="envelope-screen" aria-label="Wedding Envelope Screen">
+    <div class="ambient-particles"></div>
+
+    <div id="envelope-wrapper" class="envelope-wrapper" role="button" aria-label="Open wedding invitation envelope">
+      <div class="envelope">
+        <div class="envelope-gold-trim"></div>
+        
+        <!-- Inner Patterned Liner -->
+        <div class="envelope-liner"></div>
+
+        <!-- The Invitation Card sliding from pocket -->
+        <div class="envelope-card">
+          <img src="images/decorations/monogram-crest.svg" alt="Monogram" class="envelope-card-crest" />
+          <span class="envelope-card-announcement">The Wedding Celebration</span>
+          <h2 class="envelope-card-couple" data-cfg="couple.monogram">Alexander &amp; Sophia</h2>
+          <span class="envelope-card-date" data-cfg="displayDate">Saturday, 18 September 2027</span>
+        </div>
+
+        <!-- Pocket Triangles -->
+        <div class="envelope-pocket">
+          <div class="envelope-pocket-left"></div>
+          <div class="envelope-pocket-right"></div>
+          <div class="envelope-pocket-bottom"></div>
+        </div>
+
+        <!-- Envelope Front Addressing -->
+        <div class="envelope-front-details">
+          <div class="guest-pill">
+            <span class="guest-greeting">Special Invitation For</span>
+            <span id="envelope-guest-name" class="guest-name">Honored Guest &amp; Family</span>
+          </div>
+        </div>
+
+        <!-- Top Flap Folding 180deg in 3D -->
+        <div class="envelope-top-flap"></div>
+
+        <!-- Realistic Wax Seal Button -->
+        <div id="wax-seal-btn" class="wax-seal-btn" title="Tap Wax Seal to Open Invitation">
+          <img src="images/decorations/wax-seal.svg" alt="Wax Seal" class="wax-seal-img" />
+        </div>
+      </div>
+
+      <!-- CTA Prompt -->
+      <div id="envelope-cta" class="envelope-cta">
+        <span class="envelope-cta-text">Open Invitation</span>
+        <span class="envelope-cta-sub">Tap wax seal to open</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       FLOATING CONTROLS & BOTTOM NAVIGATION BAR
+       ==================================================================== -->
+  <!-- Floating Music Toggle -->
+  <button id="floating-music-btn" class="floating-music-btn" title="Play background music" aria-label="Toggle background music">
+    <div class="music-disc">
+      <span class="music-note-icon">&#9835;</span>
+    </div>
+    <div class="music-waves">
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+    </div>
+  </button>
+
+  <!-- Floating Quick Navigation Pill -->
+  <nav class="floating-nav" aria-label="Quick Navigation">
+    <a href="#hero" class="floating-nav-link" title="Home">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>Home</span>
+    </a>
+    <a href="#couple" class="floating-nav-link" title="Couple">
+      <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+      <span>Couple</span>
+    </a>
+    <a href="#countdown" class="floating-nav-link" title="Countdown">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      <span>Date</span>
+    </a>
+    <a href="#details" class="floating-nav-link" title="Details">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+      <span>Events</span>
+    </a>
+    <a href="#gallery" class="floating-nav-link" title="Gallery">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+      <span>Gallery</span>
+    </a>
+    <a href="#rsvp" class="floating-nav-link" title="RSVP">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      <span>RSVP</span>
+    </a>
+    <a href="#gifts" class="floating-nav-link" title="Gifts">
+      <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+      <span>Gifts</span>
+    </a>
+    <button id="reopen-envelope-btn" class="reopen-envelope-btn" title="View Envelope Again">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+    </button>
+  </nav>
+
+  <!-- ====================================================================
+       B. HERO SECTION (MAIN INVITATION ANNOUNCEMENT)
+       ==================================================================== -->
+  <section id="hero" class="hero-section">
+    <div class="hero-background-art"></div>
+
+    <!-- Elegant Botanical Corners -->
+    <img src="images/decorations/botanical-corner.svg" alt="" class="hero-corner-decor hero-corner-tl" />
+    <img src="images/decorations/botanical-corner.svg" alt="" class="hero-corner-decor hero-corner-tr" />
+    <img src="images/decorations/botanical-corner.svg" alt="" class="hero-corner-decor hero-corner-bl" />
+    <img src="images/decorations/botanical-corner.svg" alt="" class="hero-corner-decor hero-corner-br" />
+
+    <div class="hero-content">
+      <img src="images/decorations/monogram-crest.svg" alt="Monogram Crest" class="hero-monogram-crest reveal-on-scroll fade-in" />
+      
+      <p class="hero-announcement reveal-on-scroll fade-up">The Wedding Celebration Of</p>
+
+      <h1 class="hero-couple-names reveal-on-scroll fade-up delay-100">
+        <span data-cfg="couple.groom.shortName">Alexander</span>
+        <span class="hero-ampersand">&amp;</span>
+        <span data-cfg="couple.bride.shortName">Sophia</span>
+      </h1>
+
+      <p class="hero-date reveal-on-scroll fade-up delay-200" data-cfg="displayDate">Saturday, 18 September 2027</p>
+
+      <p class="hero-quote reveal-on-scroll fade-up delay-300" data-cfg="couple.quote">
+        “Two souls with but a single thought, two hearts that beat as one.”
+      </p>
+
+      <div class="hero-actions reveal-on-scroll fade-up delay-400">
+        <button id="add-to-calendar-btn" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Save The Date
+        </button>
+        <a href="#rsvp" class="btn btn-outline">Send RSVP</a>
+      </div>
+
+      <div class="scroll-indicator">
+        <span>Scroll to Explore</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       C. COUPLE SECTION
+       ==================================================================== -->
+  <section id="couple" class="invitation-section couple-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Joined In Love</span>
+        <h2 class="section-title">The Bride &amp; Groom</h2>
+        <p class="section-subtitle">“Therefore what God has joined together, let no one separate.”</p>
+        <img src="images/decorations/floral-divider.svg" alt="" class="floral-divider" />
+      </div>
+
+      <!-- Couple Profiles Grid -->
+      <div class="couple-grid">
+        <!-- Groom Card -->
+        <div class="couple-card luxury-card reveal-on-scroll slide-left">
+          <div class="couple-photo-frame">
+            <img src="images/couple/groom.jpg" data-cfg-src="couple.groom.photo" alt="Alexander Christian Hayes" class="couple-photo" />
+          </div>
+          <span class="couple-role">The Groom</span>
+          <h3 class="couple-name" data-cfg="couple.groom.fullName">Alexander Christian Hayes</h3>
+          <p class="couple-parents">Son of <span data-cfg="couple.groom.fatherName">Mr. Robert Hayes</span> &amp; <span data-cfg="couple.groom.motherName">Mrs. Eleanor Hayes</span></p>
+          <p class="couple-bio" data-cfg="couple.groom.bio">
+            A software architect with a passion for music, quiet ocean horizons, and gentle mornings.
+          </p>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="couple-social-link" data-cfg-href="couple.groom.instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span>@alexanderhayes</span>
+          </a>
+        </div>
+
+        <!-- Center Divider & Emblem -->
+        <div class="couple-center-divider reveal-on-scroll fade-in">
+          <img src="images/decorations/rings.svg" alt="Rings" class="rings-emblem" />
+          <span class="together-text">Together with our families</span>
+        </div>
+
+        <!-- Bride Card -->
+        <div class="couple-card luxury-card reveal-on-scroll slide-right">
+          <div class="couple-photo-frame">
+            <img src="images/couple/bride.jpg" data-cfg-src="couple.bride.photo" alt="Sophia Isabella Vance" class="couple-photo" />
+          </div>
+          <span class="couple-role">The Bride</span>
+          <h3 class="couple-name" data-cfg="couple.bride.fullName">Sophia Isabella Vance</h3>
+          <p class="couple-parents">Daughter of <span data-cfg="couple.bride.fatherName">Mr. William Vance</span> &amp; <span data-cfg="couple.bride.motherName">Mrs. Catherine Vance</span></p>
+          <p class="couple-bio" data-cfg="couple.bride.bio">
+            A botanical designer who finds poetry in wildflower meadows, warm espresso, and heartfelt laughter.
+          </p>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="couple-social-link" data-cfg-href="couple.bride.instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span>@sophiavance</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Love Story Journey -->
+      <div class="story-wrapper">
+        <div class="section-header" style="margin-bottom: 2rem;">
+          <span class="section-tagline">How It All Began</span>
+          <h3 class="section-title" style="font-size: 2.2rem;">Our Love Story</h3>
+          <img src="images/decorations/floral-divider.svg" alt="" class="floral-divider" />
+        </div>
+
+        <div id="story-timeline" class="story-timeline">
+          <!-- Populated dynamically by main.js from config.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       D. WEDDING COUNTDOWN TIMER
+       ==================================================================== -->
+  <section id="countdown" class="invitation-section countdown-section">
+    <div class="container-narrow">
+      <div class="section-header">
+        <span class="section-tagline">Counting Down</span>
+        <h2 class="section-title">Save The Date</h2>
+        <p class="section-subtitle" data-cfg="displayDate">Saturday, 18 September 2027</p>
+        <img src="images/decorations/floral-divider.svg" alt="" class="floral-divider" />
+      </div>
+
+      <!-- Real-Time Countdown Timer Boxes -->
+      <div class="countdown-timer-container reveal-on-scroll fade-up">
+        <div class="countdown-box">
+          <span id="countdown-days" class="countdown-value">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-box">
+          <span id="countdown-hours" class="countdown-value">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-box">
+          <span id="countdown-minutes" class="countdown-value">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-box">
+          <span id="countdown-seconds" class="countdown-value">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+
+      <div class="countdown-actions reveal-on-scroll fade-up delay-100">
+        <button id="add-to-calendar-btn-2" class="btn btn-primary" onclick="document.getElementById('add-to-calendar-btn').click()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Add To My Calendar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       E. WEDDING DETAILS & VENUES
+       ==================================================================== -->
+  <section id="details" class="invitation-section details-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Wedding Celebration</span>
+        <h2 class="section-title">Ceremony &amp; Reception</h2>
+        <p class="section-subtitle">We request the honor of your presence as we celebrate our holy union</p>
+        <img src="images/decorations/floral-divider.svg" alt="" class="floral-divider" />
+      </div>
+
+      <!-- Events Grid: Holy Matrimony & Dinner Reception -->
+      <div class="events-grid">
+        <!-- Holy Matrimony Card -->
+        <div class="event-card luxury-card reveal-on-scroll fade-up">
+          <div class="event-icon-circle">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          </div>
+          <span class="event-type-badge">The Holy Matrimony</span>
+          <h3 class="event-title" data-cfg="events.ceremony.title">Blessing &amp; Vows</h3>
+
+          <ul class="event-info-list">
+            <li class="event-info-item">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <strong data-cfg="events.ceremony.date">Saturday, September 18, 2027</strong>
+            </li>
+            <li class="event-info-item">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span data-cfg="events.ceremony.time">10:00 AM – 11:30 AM</span>
+            </li>
+            <li class="event-info-item" style="flex-direction: column;">
+              <span class="event-venue-name" data-cfg="events.ceremony.venue">The Glasshouse Conservatory</span>
+              <span class="event-address" data-cfg="events.ceremony.address">124 Grand Vista Boulevard, Beverly Hills, CA 90210</span>
+            </li>
+          </ul>
+
+          <div class="dress-code-badge" data-cfg="events.ceremony.dressCode">
+            Formal Elegance / Champagne &amp; Soft Pastels
+          </div>
+
+          <div style="margin-top: 2rem;">
+            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-outline btn-sm" data-cfg-href="events.ceremony.mapUrl">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              Open in Google Maps
+            </a>
+          </div>
+        </div>
+
+        <!-- Wedding Dinner Reception Card -->
+        <div class="event-card luxury-card reveal-on-scroll fade-up delay-200">
+          <div class="event-icon-circle">
+            <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+          </div>
+          <span class="event-type-badge">The Wedding Reception</span>
+          <h3 class="event-title" data-cfg="events.reception.title">Banquet &amp; Dinner</h3>
+
+          <ul class="event-info-list">
+            <li class="event-info-item">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <strong data-cfg="events.reception.date">Saturday, September 18, 2027</strong>
+            </li>
+            <li class="event-info-item">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span data-cfg="events.reception.time">06:00 PM – 10:00 PM</span>
+            </li>
+            <li class="event-info-item" style="flex-direction: column;">
+              <span class="event-venue-name" data-cfg="events.reception.venue">The Grand Mirrored Ballroom</span>
+              <span class="event-address" data-cfg="events.reception.address">437 Sunset Crest Parkway, Los Angeles, CA 90028</span>
+            </li>
+          </ul>
+
+          <div class="dress-code-badge" data-cfg="events.reception.dressCode">
+            Black Tie Optional / Evening Luxe
+          </div>
+
+          <div style="margin-top: 2rem;">
+            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-outline btn-sm" data-cfg-href="events.reception.mapUrl">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              Open in Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wedding Day Itinerary Schedule -->
+      <div class="itinerary-container reveal-on-scroll fade-up">
+        <div class="itinerary-header">
+          <span class="section-tagline">Wedding Day Program</span>
+          <h3 class="section-title" style="font-size: 2rem;">Event Itinerary</h3>
+          <img src="images/decorations/floral-divider.svg" alt="" class="floral-divider" />
+        </div>
+        <ul id="itinerary-list" class="itinerary-list">
+          <!-- Populated dynamically by main.js from config.js -->
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       F. PHOTO GALLERY & LIGHTBOX
+       ==================================================================== -->
+  <section id="gallery" class="invitation-section gallery-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Visual Memories</span>
+        <h2 class="section-title">Our Moments</h2>
+        <p class="section-subtitle">A glimpse into our laughter, travels, and cherished adventures</p>
+        <img src="images/decorations/floral-divider.svg" alt="" class="floral-divider" />
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="gallery-filters reveal-on-scroll fade-in">
+        <button class="gallery-filter-btn active" data-filter="all">All Photos</button>
+        <button class="gallery-filter-btn" data-filter="prewedding">Pre-Wedding</button>
+        <button class="gallery-filter-btn" data-filter="engagement">Engagement</button>
+        <button class="gallery-filter-btn" data-filter="moments">Cherished Moments</button>
+      </div>
+
+      <!-- Dynamic Gallery Grid -->
+      <div id="gallery-grid" class="gallery-grid">
+        <!-- Rendered by gallery.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+    <button id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <button id="lightbox-prev" class="lightbox-btn lightbox-prev" aria-label="Previous Photo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button id="lightbox-next" class="lightbox-btn lightbox-next" aria-label="Next Photo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Image" />
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+      <div id="lightbox-counter" class="lightbox-counter"></div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       H. RSVP SYSTEM & GUESTBOOK WISHES WALL
+       ==================================================================== -->
+  <section id="rsvp" class="invitation-section rsvp-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Will You Attend?</span>
+        <h2 class="section-title">RSVP &amp; Blessings</h2>
+        <p class="section-subtitle">Please kindly confirm your attendance by September 1, 2027 to assist our seating preparations.</p>
+        <img src="images/decorations/floral-divider.svg" alt="" class="floral-divider" />
+      </div>
+
+      <div class="rsvp-wrapper">
+        <div class="rsvp-form-card luxury-card reveal-on-scroll fade-up">
+          <div id="rsvp-alert" class="rsvp-alert" role="alert"></div>
+
+          <form id="rsvp-form" novalidate>
+            <!-- Full Name -->
+            <div class="form-group">
+              <label class="form-label" for="rsvp-name">Full Name <span class="required">*</span></label>
+              <input type="text" id="rsvp-name" name="fullName" class="form-control" placeholder="e.g. Jonathan Sterling" required />
+            </div>
+
+            <!-- Email & Phone (2-col) -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="rsvp-email">Email Address (Optional)</label>
+                <input type="email" id="rsvp-email" name="email" class="form-control" placeholder="name@example.com" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="rsvp-phone">Phone Number (Optional)</label>
+                <input type="tel" id="rsvp-phone" name="phone" class="form-control" placeholder="+1 (555) 000-0000" />
+              </div>
+            </div>
+
+            <!-- Attendance Radio Selection -->
+            <div class="form-group">
+              <label class="form-label">Will you be attending? <span class="required">*</span></label>
+              <div class="attendance-pills">
+                <div>
+                  <input type="radio" id="attending-yes" name="attendance" value="attending" checked />
+                  <label for="attending-yes" class="attendance-pill-label">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Joyfully Accepts
+                  </label>
+                </div>
+                <div>
+                  <input type="radio" id="attending-no" name="attendance" value="declined" />
+                  <label for="attending-no" class="attendance-pill-label">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    Regretfully Declines
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Number of Guests Attending -->
+            <div id="guests-count-group" class="form-group">
+              <label class="form-label" for="rsvp-guests">Number of Guests Attending</label>
+              <select id="rsvp-guests" name="guestsCount" class="form-control">
+                <option value="1">1 Person (Myself)</option>
+                <option value="2">2 Persons (+1 Guest)</option>
+                <option value="3">3 Persons</option>
+                <option value="4">4 Persons</option>
+                <option value="5">5 Persons</option>
+              </select>
+            </div>
+
+            <!-- Dietary Preference -->
+            <div id="dietary-group" class="form-group">
+              <label class="form-label" for="rsvp-dietary">Dietary Restrictions / Meal Request</label>
+              <select id="rsvp-dietary" name="dietary" class="form-control">
+                <option value="none">Standard Menu (No Restrictions)</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="halal">Halal Option</option>
+                <option value="gluten-free">Gluten-Free</option>
+              </select>
+            </div>
+
+            <!-- Congratulations Message -->
+            <div class="form-group">
+              <label class="form-label" for="rsvp-message">Wishes &amp; Prayers for the Couple</label>
+              <textarea id="rsvp-message" name="message" class="form-control" placeholder="Write your heartfelt congratulations, memories, or prayers..."></textarea>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+              <button type="submit" id="rsvp-submit-btn" class="btn btn-primary" style="width: 100%;">
+                Send RSVP Confirmation
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Live Guestbook Wishes Wall -->
+        <div class="wishes-wall-container">
+          <div class="wishes-wall-header">
+            <span class="section-tagline">Warm Words &amp; Blessings</span>
+            <h3 class="wishes-wall-title">Guestbook Wall</h3>
+            <p class="section-subtitle">Heartfelt notes from our beloved guests</p>
+          </div>
+          <div id="wishes-list" class="wishes-list">
+            <!-- Populated dynamically by rsvp.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       I. WEDDING GIFTS & DIGITAL REGISTRY
+       ==================================================================== -->
+  <section id="gifts" class="invitation-section gifts-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Wedding Gift</span>
+        <h2 class="section-title">Digital Envelope &amp; Registry</h2>
+        <img src="images/decorations/floral-divider.svg" alt="" class="floral-divider" />
+      </div>
+
+      <p class="gift-message reveal-on-scroll fade-up" data-cfg="gifts.message">
+        Your presence and warm blessings are the greatest gifts we could ever ask for. Should you wish to honor us with a wedding gift, a digital token toward our new home would be warmly appreciated.
+      </p>
+
+      <!-- Bank Cards Grid -->
+      <div id="bank-cards-grid" class="bank-cards-grid">
+        <!-- Rendered dynamically by main.js from config.js -->
+      </div>
+
+      <!-- Shipping Gift Address Card -->
+      <div class="shipping-gift-card luxury-card reveal-on-scroll fade-up delay-200">
+        <h4 class="shipping-gift-title">Gift Delivery Address</h4>
+        <p class="shipping-address-text">
+          <strong data-cfg="gifts.shippingAddress.recipient">Alexander Hayes &amp; Sophia Vance</strong><br />
+          <span data-cfg="gifts.shippingAddress.address">742 Evergreen Terrace, Suite 104, Beverly Hills, CA 90210</span><br />
+          <span data-cfg="gifts.shippingAddress.phone">Phone: +1 (310) 555-0199</span>
+        </p>
+        <button id="copy-shipping-btn" class="btn btn-outline btn-sm">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          Copy Delivery Address
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       J. CLOSING SECTION & FOOTER
+       ==================================================================== -->
+  <footer id="closing" class="closing-section">
+    <div class="closing-content">
+      <img src="images/decorations/monogram-crest.svg" alt="Monogram" style="width: 75px; height: 75px; margin: 0 auto 1.5rem; filter: invert(1) opacity(0.85);" class="reveal-on-scroll fade-in" />
+      
+      <p class="closing-verse reveal-on-scroll fade-up">
+        “We can not wait to celebrate the beginning of our forever together with you.”
+      </p>
+
+      <div class="closing-signature reveal-on-scroll fade-up delay-100" data-cfg="couple.monogram">Alexander &amp; Sophia</div>
+      <p class="closing-date reveal-on-scroll fade-up delay-200" data-cfg="displayDate">Saturday, 18 September 2027</p>
+
+      <button id="back-to-top-btn" class="back-to-top-btn" title="Back to Top">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        Back To Top
+      </button>
+
+      <div class="wedding-footer">
+        <p>&copy; 2027 Alexander &amp; Sophia Wedding Celebration. Crafted with Love.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Calendar Selection Modal -->
+  <div id="calendar-modal" class="calendar-options-modal" role="dialog" aria-modal="true" aria-label="Select Calendar Option">
+    <div class="calendar-modal-content">
+      <h3 style="font-size: 1.6rem; margin-bottom: 0.4rem;">Save The Date</h3>
+      <p style="font-size: 0.88rem; color: var(--color-text-muted);">Choose your preferred calendar service to add our wedding celebration</p>
+      
+      <div class="calendar-links-list">
+        <button id="cal-google" class="btn btn-primary" style="width: 100%;">
+          Add to Google Calendar
+        </button>
+        <button id="cal-apple" class="btn btn-outline" style="width: 100%;">
+          Download iCalendar (.ics / Apple / Outlook)
+        </button>
+      </div>
+      
+      <button id="calendar-modal-close" class="btn btn-outline btn-sm" style="margin-top: 1.2rem; border: none;">
+        Cancel
+      </button>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/config.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/envelope.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/rsvp.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

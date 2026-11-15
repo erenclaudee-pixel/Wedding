@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40">
+  <rect width="120" height="40" rx="6" fill="#012169"/>
+  <text x="14" y="25" fill="#FFFFFF" font-family="'Montserrat', sans-serif" font-weight="700" font-size="12" letter-spacing="0.5">BANK OF AMERICA</text>
+  <rect x="100" y="10" width="8" height="20" fill="#E31837" rx="1"/>
+</svg>

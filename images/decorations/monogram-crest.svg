@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <defs>
+    <linearGradient id="crestGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5C79E" />
+      <stop offset="50%" stop-color="#C29B63" />
+      <stop offset="100%" stop-color="#8B6634" />
+    </linearGradient>
+    <filter id="softGlow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#C29B63" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Laurel Wreath Crest -->
+  <g stroke="url(#crestGold)" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#softGlow)">
+    <!-- Left Wreath Branch -->
+    <path d="M 80 230 C 50 180, 50 110, 100 65 C 120 48, 140 45, 150 45" stroke-width="1.8"/>
+    <!-- Right Wreath Branch -->
+    <path d="M 220 230 C 250 180, 250 110, 200 65 C 180 48, 160 45, 150 45" stroke-width="1.8"/>
+
+    <!-- Left Leaves -->
+    <path d="M 82 205 C 68 200, 65 188, 77 186 C 82 195, 82 205, 82 205 Z" fill="#DFBD8E" opacity="0.6"/>
+    <path d="M 68 175 C 55 168, 54 156, 66 156 C 70 165, 68 175, 68 175 Z" fill="#DFBD8E" opacity="0.6"/>
+    <path d="M 62 140 C 50 132, 52 120, 64 122 C 67 130, 62 140, 62 140 Z" fill="#DFBD8E" opacity="0.6"/>
+    <path d="M 68 105 C 58 96, 62 84, 73 88 C 74 97, 68 105, 68 105 Z" fill="#DFBD8E" opacity="0.6"/>
+    <path d="M 85 75 C 77 65, 85 54, 95 60 C 94 69, 85 75, 85 75 Z" fill="#DFBD8E" opacity="0.6"/>
+    <path d="M 112 55 C 107 43, 119 35, 127 43 C 124 51, 112 55, 112 55 Z" fill="#DFBD8E" opacity="0.6"/>
+
+    <!-- Right Leaves -->
+    <path d="M 218 205 C 232 200, 235 188, 223 186 C 218 195, 218 205, 218 205 Z" fill="#DFBD8E" opacity="0.6"/>
+    <path d="M 232 175 C 245 168, 246 156, 234 156 C 230 165, 232 175, 232 175 Z" fill="#DFBD8E" opacity="0.6"/>
+    <path d="M 238 140 C 250 132, 248 120, 236 122 C 233 130, 238 140, 238 140 Z" fill="#DFBD8E" opacity="0.6"/>
+    <path d="M 232 105 C 242 96, 238 84, 227 88 C 226 97, 232 105, 232 105 Z" fill="#DFBD8E" opacity="0.6"/>
+    <path d="M 215 75 C 223 65, 215 54, 205 60 C 206 69, 215 75, 215 75 Z" fill="#DFBD8E" opacity="0.6"/>
+    <path d="M 188 55 C 193 43, 181 35, 173 43 C 176 51, 188 55, 188 55 Z" fill="#DFBD8E" opacity="0.6"/>
+
+    <!-- Bottom Ribbon Bow -->
+    <path d="M 140 236 C 145 230, 155 230, 160 236 C 158 245, 142 245, 140 236 Z" fill="#C29B63"/>
+    <path d="M 140 238 C 130 250, 115 260, 105 268" stroke-width="1.5"/>
+    <path d="M 160 238 C 170 250, 185 260, 195 268" stroke-width="1.5"/>
+  </g>
+
+  <!-- Crown / Star at Top -->
+  <polygon points="150,22 153,29 160,29 155,34 157,41 150,37 143,41 145,34 140,29 147,29" fill="#C29B63"/>
+
+  <!-- Center Monogram -->
+  <text x="150" y="165" font-family="'Cinzel', 'Playfair Display', 'Cormorant Garamond', serif" font-size="52" font-weight="600" letter-spacing="4" fill="#9A7B56" text-anchor="middle">A &amp; S</text>
+  <line x1="110" y1="180" x2="190" y2="180" stroke="#C29B63" stroke-width="1" opacity="0.6"/>
+  <text x="150" y="196" font-family="'Montserrat', sans-serif" font-size="11" font-weight="500" letter-spacing="6" fill="#887C74" text-anchor="middle">18.09.2027</text>
+</svg>

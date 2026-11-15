@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40">
+  <rect width="120" height="40" rx="6" fill="#117ACA"/>
+  <!-- Octagon Chase logo shape -->
+  <g transform="translate(14, 11) scale(0.6)" fill="#FFFFFF">
+    <path d="M12 0 L18 6 L18 12 L12 12 Z M30 12 L24 18 L18 18 L18 12 Z M18 30 L12 24 L12 18 L18 18 Z M0 18 L6 12 L12 12 L12 18 Z"/>
+  </g>
+  <text x="40" y="25" fill="#FFFFFF" font-family="'Montserrat', sans-serif" font-weight="700" font-size="14" letter-spacing="1">CHASE</text>
+</svg>

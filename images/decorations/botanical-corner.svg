@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="goldLeaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DFBD8E" />
+      <stop offset="50%" stop-color="#BA9560" />
+      <stop offset="100%" stop-color="#886435" />
+    </linearGradient>
+  </defs>
+
+  <g stroke="url(#goldLeaf)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Corner Border Lines -->
+    <path d="M 5 60 L 5 15 C 5 9.5, 9.5 5, 15 5 L 60 5" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 12 50 L 12 18 C 12 14.7, 14.7 12, 18 12 L 50 12" stroke-width="0.8" opacity="0.4"/>
+
+    <!-- Corner Botanical Foliage -->
+    <!-- Main stem -->
+    <path d="M 10 10 C 25 25, 45 35, 75 40" stroke-width="1.2"/>
+    <path d="M 10 10 C 25 25, 35 45, 40 75" stroke-width="1.2"/>
+
+    <!-- Leaves -->
+    <path d="M 22 22 C 22 15, 30 14, 34 20 C 34 26, 26 27, 22 22 Z" fill="#D3AE7D" opacity="0.4"/>
+    <path d="M 38 31 C 42 22, 52 23, 53 30 C 51 37, 41 38, 38 31 Z" fill="#D3AE7D" opacity="0.4"/>
+    <path d="M 54 36 C 60 30, 68 32, 69 38 C 67 44, 58 43, 54 36 Z" fill="#D3AE7D" opacity="0.4"/>
+
+    <path d="M 31 38 C 22 42, 23 52, 30 53 C 37 51, 38 41, 31 38 Z" fill="#D3AE7D" opacity="0.4"/>
+    <path d="M 36 54 C 30 60, 32 68, 38 69 C 44 67, 43 58, 36 54 Z" fill="#D3AE7D" opacity="0.4"/>
+
+    <!-- Small berries/dots -->
+    <circle cx="28" cy="27" r="2" fill="#BA9560"/>
+    <circle cx="43" cy="34" r="1.8" fill="#BA9560"/>
+    <circle cx="34" cy="43" r="1.8" fill="#BA9560"/>
+    <circle cx="58" cy="39" r="1.5" fill="#BA9560"/>
+    <circle cx="39" cy="58" r="1.5" fill="#BA9560"/>
+  </g>
+</svg>
