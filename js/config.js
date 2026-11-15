@@ -239,8 +239,8 @@ const WEDDING_CONFIG = {
   // Supabase Configuration for RSVP & Wishes
   // Replace these with your Supabase project credentials in Vercel environment variables or directly here
   supabase: {
-    url: window.ENV_SUPABASE_URL || "https://your-project.supabase.co",
-    anonKey: window.ENV_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.your-anon-key-here",
+    url: window.ENV_SUPABASE_URL || "https://ktrfxdqhndjvggjiqibk.supabase.co",
+    anonKey: window.ENV_SUPABASE_ANON_KEY || "sb_publishable_z1UO9L1-R2H74_naTT9rTA_2Qmk0TF2",
     table: "rsvps",
     wishesTable: "wishes",
     // Set to true to automatically fallback to localStorage when Supabase is not connected
