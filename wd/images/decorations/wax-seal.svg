@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <!-- Wax color gradients -->
+    <radialGradient id="waxGrad" cx="38%" cy="32%" r="65%">
+      <stop offset="0%" stop-color="#E2B16F" />
+      <stop offset="25%" stop-color="#C5934B" />
+      <stop offset="60%" stop-color="#8F5E24" />
+      <stop offset="100%" stop-color="#5B380D" />
+    </radialGradient>
+    <radialGradient id="waxInner" cx="45%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#DFAD68" />
+      <stop offset="50%" stop-color="#A57331" />
+      <stop offset="100%" stop-color="#6E4413" />
+    </radialGradient>
+    <linearGradient id="goldShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF4D0" stop-opacity="0.8"/>
+      <stop offset="30%" stop-color="#DFAD68" stop-opacity="0.2"/>
+      <stop offset="70%" stop-color="#6E4413" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#2B1605" stop-opacity="0.9"/>
+    </linearGradient>
+    <!-- Drop shadow -->
+    <filter id="waxShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#2A1608" flood-opacity="0.5"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+    <filter id="deboss">
+      <feDropShadow dx="1" dy="2" stdDeviation="1" flood-color="#2D1704" flood-opacity="0.8"/>
+      <feDropShadow dx="-1" dy="-1" stdDeviation="1" flood-color="#FFF2CA" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Organic Melted Wax Edge with shadow -->
+  <path d="M100 8 
+           C122 7, 138 18, 153 28 
+           C168 38, 185 46, 191 66 
+           C197 86, 188 106, 190 126 
+           C192 146, 181 164, 166 177 
+           C151 190, 131 193, 111 194 
+           C91 195, 71 193, 53 183 
+           C35 173, 18 160, 12 140 
+           C6 120, 15 101, 13 81 
+           C11 61, 23 43, 38 29 
+           C53 15, 78 9, 100 8 Z" 
+        fill="url(#waxGrad)" 
+        filter="url(#waxShadow)" />
+
+  <!-- Wax Highlight Rim -->
+  <path d="M100 12 
+           C120 11, 135 21, 149 31 
+           C163 41, 179 48, 184 66 
+           C190 84, 181 103, 183 122 
+           C185 141, 175 157, 161 169 
+           C147 181, 128 184, 109 185 
+           C90 186, 72 184, 55 174 
+           C38 164, 23 152, 17 134 
+           C11 116, 20 98, 18 80 
+           C16 62, 27 45, 41 32 
+           C55 19, 80 13, 100 12 Z" 
+        fill="none" 
+        stroke="url(#goldShine)" 
+        stroke-width="3" 
+        opacity="0.6" />
+
+  <!-- Inner Recessed Stamped Circle -->
+  <circle cx="100" cy="100" r="68" fill="url(#waxInner)" />
+
+  <!-- Stamped Double Border Rings -->
+  <circle cx="100" cy="100" r="66" fill="none" stroke="#5A340C" stroke-width="2.5" opacity="0.8" />
+  <circle cx="100" cy="100" r="63" fill="none" stroke="#DCA862" stroke-width="1" opacity="0.5" />
+  <circle cx="100" cy="100" r="54" fill="none" stroke="#663C0F" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.8" />
+  <circle cx="100" cy="100" r="51" fill="none" stroke="#FDE4A6" stroke-width="0.8" opacity="0.4" />
+
+  <!-- Monogram Debossed Letters: A & S -->
+  <g filter="url(#deboss)" fill="#442407" text-anchor="middle">
+    <!-- Wreath Leaves around letters -->
+    <path d="M60 100 C58 82, 70 66, 85 58 C83 66, 75 75, 74 85 C73 95, 77 105, 80 114 C72 110, 63 106, 60 100 Z" fill="#502B0A" opacity="0.4"/>
+    <path d="M140 100 C142 82, 130 66, 115 58 C117 66, 125 75, 126 85 C127 95, 123 105, 120 114 C128 110, 137 106, 140 100 Z" fill="#502B0A" opacity="0.4"/>
+    
+    <!-- Couple Monogram -->
+    <text x="100" y="112" font-family="'Cinzel', 'Playfair Display', 'Cormorant Garamond', serif" font-size="32" font-weight="700" letter-spacing="2">Y&amp;M</text>
+  </g>
+
+  <!-- Small botanical star / diamond at bottom -->
+  <polygon points="100,126 103,132 109,132 104,136 106,142 100,138 94,142 96,136 91,132 97,132" fill="#DFC07E" opacity="0.7"/>
+</svg>
+

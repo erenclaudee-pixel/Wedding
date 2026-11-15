@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40">
+  <rect width="120" height="40" rx="6" fill="#7414CA"/>
+  <text x="24" y="26" fill="#FFFFFF" font-family="'Montserrat', sans-serif" font-weight="700" font-size="16" letter-spacing="0.5">zelle</text>
+  <circle cx="82" cy="18" r="3" fill="#00DE9C"/>
+</svg>
