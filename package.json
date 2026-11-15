@@ -4,8 +4,7 @@
   "description": "Premium Animated Digital Wedding Invitation with Interactive Envelope, Real-time Countdown, Photo Gallery, RSVP with Supabase, and Background Music",
   "main": "index.html",
   "scripts": {
-    "start": "npx serve . -l 3000",
-    "build": "echo \"Build completed: static assets ready for Vercel deployment\""
+    "start": "npx serve . -l 3000"
   },
   "keywords": [
     "wedding-invitation",
@@ -18,4 +17,3 @@
   "author": "Wedding Invitation Specialist",
   "license": "MIT"
 }
-
