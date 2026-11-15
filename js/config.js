@@ -10,28 +10,28 @@ const WEDDING_CONFIG = {
   // Couple Information
   couple: {
     groom: {
-      fullName: "Alexander Christian Hayes",
-      shortName: "Alexander",
-      initial: "A",
-      fatherName: "Mr. Robert Hayes",
-      motherName: "Mrs. Eleanor Hayes",
-      title: "Software Architect & Creator",
-      bio: "A dreamer with a love for architectural elegance and quiet coffee mornings. Finding Sophia made every horizon brighter.",
+      fullName: "Yvan King Malitic",
+      shortName: "Yvan King",
+      initial: "Y",
+      fatherName: "Mr. Malitic",
+      motherName: "Mrs. Malitic",
+      title: "The Groom",
+      bio: "A man of passion, devotion, and strength. Finding Marielle made every horizon brighter and gave every dream its true meaning.",
       photo: "images/couple/groom.jpg",
       instagram: "https://instagram.com",
     },
     bride: {
-      fullName: "Sophia Isabella Vance",
-      shortName: "Sophia",
-      initial: "S",
-      fatherName: "Mr. William Vance",
-      motherName: "Mrs. Catherine Vance",
-      title: "Landscape Artist & Botanist",
-      bio: "A passionate artist inspired by nature's poetry and gentle sunsets. Alexander brings warmth and laughter to every chapter.",
+      fullName: "Marielle Brimbuela",
+      shortName: "Marielle",
+      initial: "M",
+      fatherName: "Mr. Brimbuela",
+      motherName: "Mrs. Brimbuela",
+      title: "The Bride",
+      bio: "A woman of gentle grace, radiance, and boundless warmth. Yvan brings laughter, love, and comfort to every moment.",
       photo: "images/couple/bride.jpg",
       instagram: "https://instagram.com",
     },
-    monogram: "A & S",
+    monogram: "Y & M",
     quote: "“Two souls with but a single thought, two hearts that beat as one.”",
     quoteAuthor: "John Keats",
     heroImage: "images/couple/couple-hero.jpg"
@@ -130,12 +130,12 @@ const WEDDING_CONFIG = {
     {
       year: "2025",
       title: "She Said Yes!",
-      description: "Under a canopy of fairy lights overlooking Lake Como at twilight, Alexander got down on one knee. With joyful tears, Sophia said yes to forever."
+      description: "Under a canopy of fairy lights overlooking the calm waters at twilight, Yvan got down on one knee. With joyful tears, Marielle said yes to forever."
     },
     {
       year: "2027",
       title: "The Beginning of Always",
-      description: "Surrounded by our dearest family and friends, we begin the most beautiful chapter of our lives as husband and wife."
+      description: "Surrounded by our dearest family and friends, Yvan and Marielle begin the most beautiful chapter of our lives as husband and wife."
     }
   ],
 
@@ -207,7 +207,7 @@ const WEDDING_CONFIG = {
       {
         bankName: "Bank of America",
         accountNumber: "4839 2018 9402 1194",
-        accountHolder: "Alexander Christian Hayes",
+        accountHolder: "Yvan King Malitic",
         type: "bank",
         badge: "Groom's Account",
         logo: "assets/icons/bank-boa.svg"
@@ -215,22 +215,22 @@ const WEDDING_CONFIG = {
       {
         bankName: "Chase Bank",
         accountNumber: "9283 1047 5582 3019",
-        accountHolder: "Sophia Isabella Vance",
+        accountHolder: "Marielle Brimbuela",
         type: "bank",
         badge: "Bride's Account",
         logo: "assets/icons/bank-chase.svg"
       },
       {
-        bankName: "Zelle & PayPal",
-        accountNumber: "alexander.sophia.wedding@gmail.com",
-        accountHolder: "Alexander & Sophia",
+        bankName: "Zelle & GCash",
+        accountNumber: "yvan.marielle.wedding@gmail.com",
+        accountHolder: "Yvan King & Marielle",
         type: "digital",
         badge: "Instant Transfer",
         logo: "assets/icons/zelle.svg"
       }
     ],
     shippingAddress: {
-      recipient: "Alexander Hayes & Sophia Vance",
+      recipient: "Yvan King Malitic & Marielle Brimbuela",
       address: "742 Evergreen Terrace, Suite 104, Beverly Hills, CA 90210",
       phone: "+1 (310) 555-0199"
     }
@@ -272,3 +272,4 @@ if (typeof window !== "undefined") {
 if (typeof module !== "undefined" && module.exports) {
   module.exports = WEDDING_CONFIG;
 }
+

@@ -64,3 +64,4 @@ for (let i = 0; i < numSamples; i++) {
 
 fs.writeFileSync('assets/music/wedding-melody.mp3', buffer);
 console.log('Audio file generated successfully! Size:', buffer.length);
+

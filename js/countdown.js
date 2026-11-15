@@ -178,3 +178,4 @@ class WeddingCountdown {
 document.addEventListener('DOMContentLoaded', () => {
   window.WeddingCountdown = new WeddingCountdown();
 });
+

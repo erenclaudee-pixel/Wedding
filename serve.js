@@ -1,0 +1,40 @@
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+const { exec } = require('child_process');
+
+const PORT = 3000;
+const mimeTypes = {
+  '.html': 'text/html',
+  '.js': 'text/javascript',
+  '.css': 'text/css',
+  '.json': 'application/json',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.svg': 'image/svg+xml',
+  '.mp3': 'audio/mpeg'
+};
+
+const server = http.createServer((req, res) => {
+  let filePath = '.' + req.url.split('?')[0];
+  if (filePath === './') filePath = './index.html';
+
+  const ext = path.extname(filePath);
+  const contentType = mimeTypes[ext] || 'application/octet-stream';
+
+  fs.readFile(filePath, (err, content) => {
+    if (err) {
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.end('Not Found');
+    } else {
+      res.writeHead(200, { 'Content-Type': contentType });
+      res.end(content);
+    }
+  });
+});
+
+server.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}/`);
+  exec(`start http://localhost:${PORT}/?to=Honored+Guest`);
+});
+

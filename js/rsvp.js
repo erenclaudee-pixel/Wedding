@@ -254,7 +254,7 @@ class WeddingRSVP {
           {
             guest_name: "Dr. Marcus Aurelius & Family",
             attendance: "attending",
-            message: "Heartfelt congratulations to Alexander & Sophia. May your union be blessed with deep affection and everlasting peace.",
+            message: "Heartfelt congratulations to Yvan & Marielle. May your union be blessed with deep affection and everlasting peace.",
             created_at: new Date(Date.now() - 3600000 * 24).toISOString()
           },
           {
@@ -318,3 +318,4 @@ class WeddingRSVP {
 document.addEventListener('DOMContentLoaded', () => {
   window.WeddingRSVP = new WeddingRSVP();
 });
+

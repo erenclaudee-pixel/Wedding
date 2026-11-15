@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <meta name="theme-color" content="#FAF8F5" />
-  <title>The Wedding of Alexander & Sophia | Digital Invitation</title>
-  <meta name="description" content="You are joyfully invited to celebrate the wedding of Alexander Christian Hayes & Sophia Isabella Vance on Saturday, September 18, 2027 in Beverly Hills, CA." />
-  
+  <title>The Wedding of Marielle & Yvan | Digital Invitation</title>
+  <meta name="description"
+    content="You are joyfully invited to celebrate the wedding of Yvan & Marielle on Saturday, September 18, 2027 in Beverly Hills, CA." />
+
   <!-- OpenGraph / Social Sharing -->
-  <meta property="og:title" content="The Wedding of Alexander & Sophia" />
+  <meta property="og:title" content="The Wedding of Marielle & Yvan" />
   <meta property="og:description" content="Saturday, September 18, 2027 • The Glasshouse Conservatory, Beverly Hills" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="images/couple/couple-hero.jpg" />
@@ -16,7 +18,9 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
 
   <!-- Supabase JS Client via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -43,7 +47,7 @@
     <div id="envelope-wrapper" class="envelope-wrapper" role="button" aria-label="Open wedding invitation envelope">
       <div class="envelope">
         <div class="envelope-gold-trim"></div>
-        
+
         <!-- Inner Patterned Liner -->
         <div class="envelope-liner"></div>
 
@@ -51,7 +55,7 @@
         <div class="envelope-card">
           <img src="images/decorations/monogram-crest.svg" alt="Monogram" class="envelope-card-crest" />
           <span class="envelope-card-announcement">The Wedding Celebration</span>
-          <h2 class="envelope-card-couple" data-cfg="couple.monogram">Alexander &amp; Sophia</h2>
+          <h2 class="envelope-card-couple" data-cfg="couple.monogram">Yvan &amp; Marielle</h2>
           <span class="envelope-card-date" data-cfg="displayDate">Saturday, 18 September 2027</span>
         </div>
 
@@ -91,7 +95,8 @@
        FLOATING CONTROLS & BOTTOM NAVIGATION BAR
        ==================================================================== -->
   <!-- Floating Music Toggle -->
-  <button id="floating-music-btn" class="floating-music-btn" title="Play background music" aria-label="Toggle background music">
+  <button id="floating-music-btn" class="floating-music-btn" title="Play background music"
+    aria-label="Toggle background music">
     <div class="music-disc">
       <span class="music-note-icon">&#9835;</span>
     </div>
@@ -105,35 +110,66 @@
   <!-- Floating Quick Navigation Pill -->
   <nav class="floating-nav" aria-label="Quick Navigation">
     <a href="#hero" class="floating-nav-link" title="Home">
-      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <svg viewBox="0 0 24 24">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
       <span>Home</span>
     </a>
     <a href="#couple" class="floating-nav-link" title="Couple">
-      <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+        </path>
+      </svg>
       <span>Couple</span>
     </a>
     <a href="#countdown" class="floating-nav-link" title="Countdown">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      <svg viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
       <span>Date</span>
     </a>
     <a href="#details" class="floating-nav-link" title="Details">
-      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+      <svg viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
       <span>Events</span>
     </a>
     <a href="#gallery" class="floating-nav-link" title="Gallery">
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+      <svg viewBox="0 0 24 24">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+        <polyline points="21 15 16 10 5 21"></polyline>
+      </svg>
       <span>Gallery</span>
     </a>
     <a href="#rsvp" class="floating-nav-link" title="RSVP">
-      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      <svg viewBox="0 0 24 24">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
       <span>RSVP</span>
     </a>
     <a href="#gifts" class="floating-nav-link" title="Gifts">
-      <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+      <svg viewBox="0 0 24 24">
+        <polyline points="20 12 20 22 4 22 4 12"></polyline>
+        <rect x="2" y="7" width="20" height="5"></rect>
+        <line x1="12" y1="22" x2="12" y2="7"></line>
+        <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+        <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+      </svg>
       <span>Gifts</span>
     </a>
     <button id="reopen-envelope-btn" class="reopen-envelope-btn" title="View Envelope Again">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="1 4 1 10 7 10"></polyline>
+        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+      </svg>
     </button>
   </nav>
 
@@ -150,14 +186,15 @@
     <img src="images/decorations/botanical-corner.svg" alt="" class="hero-corner-decor hero-corner-br" />
 
     <div class="hero-content">
-      <img src="images/decorations/monogram-crest.svg" alt="Monogram Crest" class="hero-monogram-crest reveal-on-scroll fade-in" />
-      
+      <img src="images/decorations/monogram-crest.svg" alt="Monogram Crest"
+        class="hero-monogram-crest reveal-on-scroll fade-in" />
+
       <p class="hero-announcement reveal-on-scroll fade-up">The Wedding Celebration Of</p>
 
       <h1 class="hero-couple-names reveal-on-scroll fade-up delay-100">
-        <span data-cfg="couple.groom.shortName">Alexander</span>
+        <span data-cfg="couple.groom.shortName">Yvan</span>
         <span class="hero-ampersand">&amp;</span>
-        <span data-cfg="couple.bride.shortName">Sophia</span>
+        <span data-cfg="couple.bride.shortName">Marielle</span>
       </h1>
 
       <p class="hero-date reveal-on-scroll fade-up delay-200" data-cfg="displayDate">Saturday, 18 September 2027</p>
@@ -168,7 +205,12 @@
 
       <div class="hero-actions reveal-on-scroll fade-up delay-400">
         <button id="add-to-calendar-btn" class="btn btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
           Save The Date
         </button>
         <a href="#rsvp" class="btn btn-outline">Send RSVP</a>
@@ -176,7 +218,9 @@
 
       <div class="scroll-indicator">
         <span>Scroll to Explore</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
       </div>
     </div>
   </section>
@@ -198,17 +242,24 @@
         <!-- Groom Card -->
         <div class="couple-card luxury-card reveal-on-scroll slide-left">
           <div class="couple-photo-frame">
-            <img src="images/couple/groom.jpg" data-cfg-src="couple.groom.photo" alt="Alexander Christian Hayes" class="couple-photo" />
+            <img src="images/couple/groom.jpg" data-cfg-src="couple.groom.photo" alt="Yvan Malitic"
+              class="couple-photo" />
           </div>
           <span class="couple-role">The Groom</span>
-          <h3 class="couple-name" data-cfg="couple.groom.fullName">Alexander Christian Hayes</h3>
-          <p class="couple-parents">Son of <span data-cfg="couple.groom.fatherName">Mr. Robert Hayes</span> &amp; <span data-cfg="couple.groom.motherName">Mrs. Eleanor Hayes</span></p>
+          <h3 class="couple-name" data-cfg="couple.groom.fullName">Yvan King Malitic</h3>
+          <p class="couple-parents">Son of <span data-cfg="couple.groom.fatherName">Mr. Malitic</span> &amp; <span
+              data-cfg="couple.groom.motherName">Mrs. Malitic</span></p>
           <p class="couple-bio" data-cfg="couple.groom.bio">
             A software architect with a passion for music, quiet ocean horizons, and gentle mornings.
           </p>
-          <a href="https://instagram.com" target="_blank" rel="noopener" class="couple-social-link" data-cfg-href="couple.groom.instagram">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            <span>@alexanderhayes</span>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="couple-social-link"
+            data-cfg-href="couple.groom.instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            <span>@yvankingmalitic</span>
           </a>
         </div>
 
@@ -221,17 +272,25 @@
         <!-- Bride Card -->
         <div class="couple-card luxury-card reveal-on-scroll slide-right">
           <div class="couple-photo-frame">
-            <img src="images/couple/bride.jpg" data-cfg-src="couple.bride.photo" alt="Sophia Isabella Vance" class="couple-photo" />
+            <img src="images/couple/bride.jpg" data-cfg-src="couple.bride.photo" alt="Marielle Brimbuela"
+              class="couple-photo" />
           </div>
           <span class="couple-role">The Bride</span>
-          <h3 class="couple-name" data-cfg="couple.bride.fullName">Sophia Isabella Vance</h3>
-          <p class="couple-parents">Daughter of <span data-cfg="couple.bride.fatherName">Mr. William Vance</span> &amp; <span data-cfg="couple.bride.motherName">Mrs. Catherine Vance</span></p>
+          <h3 class="couple-name" data-cfg="couple.bride.fullName">Marielle Brimbuela</h3>
+          <p class="couple-parents">Daughter of <span data-cfg="couple.bride.fatherName">Mr. Brimbuela</span> &amp;
+            <span data-cfg="couple.bride.motherName">Mrs. Brimbuela</span>
+          </p>
           <p class="couple-bio" data-cfg="couple.bride.bio">
             A botanical designer who finds poetry in wildflower meadows, warm espresso, and heartfelt laughter.
           </p>
-          <a href="https://instagram.com" target="_blank" rel="noopener" class="couple-social-link" data-cfg-href="couple.bride.instagram">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            <span>@sophiavance</span>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="couple-social-link"
+            data-cfg-href="couple.bride.instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            <span>@mariellebrimbuela</span>
           </a>
         </div>
       </div>
@@ -284,8 +343,14 @@
       </div>
 
       <div class="countdown-actions reveal-on-scroll fade-up delay-100">
-        <button id="add-to-calendar-btn-2" class="btn btn-primary" onclick="document.getElementById('add-to-calendar-btn').click()">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        <button id="add-to-calendar-btn-2" class="btn btn-primary"
+          onclick="document.getElementById('add-to-calendar-btn').click()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
           Add To My Calendar
         </button>
       </div>
@@ -309,23 +374,34 @@
         <!-- Holy Matrimony Card -->
         <div class="event-card luxury-card reveal-on-scroll fade-up">
           <div class="event-icon-circle">
-            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
           </div>
           <span class="event-type-badge">The Holy Matrimony</span>
           <h3 class="event-title" data-cfg="events.ceremony.title">Blessing &amp; Vows</h3>
 
           <ul class="event-info-list">
             <li class="event-info-item">
-              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
               <strong data-cfg="events.ceremony.date">Saturday, September 18, 2027</strong>
             </li>
             <li class="event-info-item">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
               <span data-cfg="events.ceremony.time">10:00 AM – 11:30 AM</span>
             </li>
             <li class="event-info-item" style="flex-direction: column;">
               <span class="event-venue-name" data-cfg="events.ceremony.venue">The Glasshouse Conservatory</span>
-              <span class="event-address" data-cfg="events.ceremony.address">124 Grand Vista Boulevard, Beverly Hills, CA 90210</span>
+              <span class="event-address" data-cfg="events.ceremony.address">124 Grand Vista Boulevard, Beverly Hills,
+                CA 90210</span>
             </li>
           </ul>
 
@@ -334,8 +410,12 @@
           </div>
 
           <div style="margin-top: 2rem;">
-            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-outline btn-sm" data-cfg-href="events.ceremony.mapUrl">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-outline btn-sm"
+              data-cfg-href="events.ceremony.mapUrl">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
               Open in Google Maps
             </a>
           </div>
@@ -344,23 +424,38 @@
         <!-- Wedding Dinner Reception Card -->
         <div class="event-card luxury-card reveal-on-scroll fade-up delay-200">
           <div class="event-icon-circle">
-            <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+              <line x1="6" y1="1" x2="6" y2="4"></line>
+              <line x1="10" y1="1" x2="10" y2="4"></line>
+              <line x1="14" y1="1" x2="14" y2="4"></line>
+            </svg>
           </div>
           <span class="event-type-badge">The Wedding Reception</span>
           <h3 class="event-title" data-cfg="events.reception.title">Banquet &amp; Dinner</h3>
 
           <ul class="event-info-list">
             <li class="event-info-item">
-              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
               <strong data-cfg="events.reception.date">Saturday, September 18, 2027</strong>
             </li>
             <li class="event-info-item">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
               <span data-cfg="events.reception.time">06:00 PM – 10:00 PM</span>
             </li>
             <li class="event-info-item" style="flex-direction: column;">
               <span class="event-venue-name" data-cfg="events.reception.venue">The Grand Mirrored Ballroom</span>
-              <span class="event-address" data-cfg="events.reception.address">437 Sunset Crest Parkway, Los Angeles, CA 90028</span>
+              <span class="event-address" data-cfg="events.reception.address">437 Sunset Crest Parkway, Los Angeles, CA
+                90028</span>
             </li>
           </ul>
 
@@ -369,8 +464,12 @@
           </div>
 
           <div style="margin-top: 2rem;">
-            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-outline btn-sm" data-cfg-href="events.reception.mapUrl">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-outline btn-sm"
+              data-cfg-href="events.reception.mapUrl">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
               Open in Google Maps
             </a>
           </div>
@@ -421,13 +520,20 @@
   <!-- Lightbox Modal -->
   <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
     <button id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
     </button>
     <button id="lightbox-prev" class="lightbox-btn lightbox-prev" aria-label="Previous Photo">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
     </button>
     <button id="lightbox-next" class="lightbox-btn lightbox-next" aria-label="Next Photo">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
     </button>
     <div class="lightbox-content">
       <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Image" />
@@ -444,7 +550,8 @@
       <div class="section-header">
         <span class="section-tagline">Will You Attend?</span>
         <h2 class="section-title">RSVP &amp; Blessings</h2>
-        <p class="section-subtitle">Please kindly confirm your attendance by September 1, 2027 to assist our seating preparations.</p>
+        <p class="section-subtitle">Please kindly confirm your attendance by September 1, 2027 to assist our seating
+          preparations.</p>
         <img src="images/decorations/floral-divider.svg" alt="" class="floral-divider" />
       </div>
 
@@ -456,7 +563,8 @@
             <!-- Full Name -->
             <div class="form-group">
               <label class="form-label" for="rsvp-name">Full Name <span class="required">*</span></label>
-              <input type="text" id="rsvp-name" name="fullName" class="form-control" placeholder="e.g. Jonathan Sterling" required />
+              <input type="text" id="rsvp-name" name="fullName" class="form-control"
+                placeholder="e.g. Jonathan Sterling" required />
             </div>
 
             <!-- Email & Phone (2-col) -->
@@ -478,14 +586,19 @@
                 <div>
                   <input type="radio" id="attending-yes" name="attendance" value="attending" checked />
                   <label for="attending-yes" class="attendance-pill-label">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
                     Joyfully Accepts
                   </label>
                 </div>
                 <div>
                   <input type="radio" id="attending-no" name="attendance" value="declined" />
                   <label for="attending-no" class="attendance-pill-label">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
                     Regretfully Declines
                   </label>
                 </div>
@@ -519,7 +632,8 @@
             <!-- Congratulations Message -->
             <div class="form-group">
               <label class="form-label" for="rsvp-message">Wishes &amp; Prayers for the Couple</label>
-              <textarea id="rsvp-message" name="message" class="form-control" placeholder="Write your heartfelt congratulations, memories, or prayers..."></textarea>
+              <textarea id="rsvp-message" name="message" class="form-control"
+                placeholder="Write your heartfelt congratulations, memories, or prayers..."></textarea>
             </div>
 
             <div style="text-align: center; margin-top: 2rem;">
@@ -557,7 +671,8 @@
       </div>
 
       <p class="gift-message reveal-on-scroll fade-up" data-cfg="gifts.message">
-        Your presence and warm blessings are the greatest gifts we could ever ask for. Should you wish to honor us with a wedding gift, a digital token toward our new home would be warmly appreciated.
+        Your presence and warm blessings are the greatest gifts we could ever ask for. Should you wish to honor us with
+        a wedding gift, a digital token toward our new home would be warmly appreciated.
       </p>
 
       <!-- Bank Cards Grid -->
@@ -569,12 +684,16 @@
       <div class="shipping-gift-card luxury-card reveal-on-scroll fade-up delay-200">
         <h4 class="shipping-gift-title">Gift Delivery Address</h4>
         <p class="shipping-address-text">
-          <strong data-cfg="gifts.shippingAddress.recipient">Alexander Hayes &amp; Sophia Vance</strong><br />
-          <span data-cfg="gifts.shippingAddress.address">742 Evergreen Terrace, Suite 104, Beverly Hills, CA 90210</span><br />
+          <strong data-cfg="gifts.shippingAddress.recipient">Yvan King Malitic &amp; Marielle Brimbuela</strong><br />
+          <span data-cfg="gifts.shippingAddress.address">742 Evergreen Terrace, Suite 104, Beverly Hills, CA
+            90210</span><br />
           <span data-cfg="gifts.shippingAddress.phone">Phone: +1 (310) 555-0199</span>
         </p>
         <button id="copy-shipping-btn" class="btn btn-outline btn-sm">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
           Copy Delivery Address
         </button>
       </div>
@@ -586,32 +705,39 @@
        ==================================================================== -->
   <footer id="closing" class="closing-section">
     <div class="closing-content">
-      <img src="images/decorations/monogram-crest.svg" alt="Monogram" style="width: 75px; height: 75px; margin: 0 auto 1.5rem; filter: invert(1) opacity(0.85);" class="reveal-on-scroll fade-in" />
-      
+      <img src="images/decorations/monogram-crest.svg" alt="Monogram"
+        style="width: 75px; height: 75px; margin: 0 auto 1.5rem; filter: invert(1) opacity(0.85);"
+        class="reveal-on-scroll fade-in" />
+
       <p class="closing-verse reveal-on-scroll fade-up">
         “We can not wait to celebrate the beginning of our forever together with you.”
       </p>
 
-      <div class="closing-signature reveal-on-scroll fade-up delay-100" data-cfg="couple.monogram">Alexander &amp; Sophia</div>
+      <div class="closing-signature reveal-on-scroll fade-up delay-100" data-cfg="couple.monogram">Yvan &amp;
+        Marielle</div>
       <p class="closing-date reveal-on-scroll fade-up delay-200" data-cfg="displayDate">Saturday, 18 September 2027</p>
 
       <button id="back-to-top-btn" class="back-to-top-btn" title="Back to Top">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
         Back To Top
       </button>
 
       <div class="wedding-footer">
-        <p>&copy; 2027 Alexander &amp; Sophia Wedding Celebration. Crafted with Love.</p>
+        <p>&copy; 2027 Yvan &amp; Marielle Wedding Celebration. Crafted with Love.</p>
       </div>
     </div>
   </footer>
 
   <!-- Calendar Selection Modal -->
-  <div id="calendar-modal" class="calendar-options-modal" role="dialog" aria-modal="true" aria-label="Select Calendar Option">
+  <div id="calendar-modal" class="calendar-options-modal" role="dialog" aria-modal="true"
+    aria-label="Select Calendar Option">
     <div class="calendar-modal-content">
       <h3 style="font-size: 1.6rem; margin-bottom: 0.4rem;">Save The Date</h3>
-      <p style="font-size: 0.88rem; color: var(--color-text-muted);">Choose your preferred calendar service to add our wedding celebration</p>
-      
+      <p style="font-size: 0.88rem; color: var(--color-text-muted);">Choose your preferred calendar service to add our
+        wedding celebration</p>
+
       <div class="calendar-links-list">
         <button id="cal-google" class="btn btn-primary" style="width: 100%;">
           Add to Google Calendar
@@ -620,7 +746,7 @@
           Download iCalendar (.ics / Apple / Outlook)
         </button>
       </div>
-      
+
       <button id="calendar-modal-close" class="btn btn-outline btn-sm" style="margin-top: 1.2rem; border: none;">
         Cancel
       </button>
@@ -636,4 +762,5 @@
   <script src="js/rsvp.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>

@@ -92,9 +92,9 @@ function Create-ArtImage {
 }
 
 # 1. Couple Images
-Create-ArtImage "images/couple/groom.jpg" 800 1000 "The Groom" "Alexander Christian Hayes" "Architect of Dreams & True Devotion" ([System.Drawing.Color]::FromArgb(248, 243, 236)) ([System.Drawing.Color]::FromArgb(218, 202, 185))
-Create-ArtImage "images/couple/bride.jpg" 800 1000 "The Bride" "Sophia Isabella Vance" "Grace, Radiance & Everlasting Bloom" ([System.Drawing.Color]::FromArgb(253, 246, 242)) ([System.Drawing.Color]::FromArgb(235, 209, 198))
-Create-ArtImage "images/couple/couple-hero.jpg" 1200 800 "Wedding Celebration" "Alexander & Sophia" "Two Hearts Bound in Eternal Harmony" ([System.Drawing.Color]::FromArgb(250, 244, 235)) ([System.Drawing.Color]::FromArgb(215, 195, 175))
+Create-ArtImage "images/couple/groom.jpg" 800 1000 "The Groom" "Yvan King Malitic" "Strength, Devotion & Eternal Love" ([System.Drawing.Color]::FromArgb(248, 243, 236)) ([System.Drawing.Color]::FromArgb(218, 202, 185))
+Create-ArtImage "images/couple/bride.jpg" 800 1000 "The Bride" "Marielle Brimbuela" "Grace, Radiance & Everlasting Bloom" ([System.Drawing.Color]::FromArgb(253, 246, 242)) ([System.Drawing.Color]::FromArgb(235, 209, 198))
+Create-ArtImage "images/couple/couple-hero.jpg" 1200 800 "Wedding Celebration" "Yvan & Marielle" "Two Hearts Bound in Eternal Harmony" ([System.Drawing.Color]::FromArgb(250, 244, 235)) ([System.Drawing.Color]::FromArgb(215, 195, 175))
 
 # 2. Gallery Images
 Create-ArtImage "images/gallery/photo1.jpg" 800 1000 "Pre-Wedding" "Golden Hour Glow" "Sunset across the coastal bluffs" ([System.Drawing.Color]::FromArgb(255, 247, 235)) ([System.Drawing.Color]::FromArgb(230, 200, 168))
@@ -121,3 +121,4 @@ for ($x = 0; $x -lt 300; $x++) {
 $texBmp.Save("images/backgrounds/paper-texture.png", [System.Drawing.Imaging.ImageFormat]::Png)
 $texBmp.Dispose()
 Write-Host "Generated: images/backgrounds/paper-texture.png"
+

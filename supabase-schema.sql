@@ -69,7 +69,8 @@ CREATE INDEX IF NOT EXISTS idx_wishes_created_at ON public.wishes(created_at DES
 INSERT INTO public.wishes (guest_name, attendance, message, is_approved)
 VALUES 
     ('Jonathan & Claire Sterling', 'attending', 'Wishing you both a lifetime of unmeasurable happiness, boundless love, and wonderful adventures together! Can not wait to celebrate with you!', true),
-    ('Dr. Marcus Aurelius & Family', 'attending', 'Heartfelt congratulations to Alexander & Sophia. May your union be blessed with deep affection and everlasting peace.', true),
+    ('Dr. Marcus Aurelius & Family', 'attending', 'Heartfelt congratulations to Yvan & Marielle. May your union be blessed with deep affection and everlasting peace.', true),
     ('Audrey Dupont', 'attending', 'To the most radiant couple! So thrilled to witness your fairytale wedding in Beverly Hills! Sending all our love.', true),
     ('David & Evelyn Thorne', 'declined', 'Sending you our warmest congratulations and best wishes from London! We will be celebrating you both in spirit.', true)
 ON CONFLICT DO NOTHING;
+

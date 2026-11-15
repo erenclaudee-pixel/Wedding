@@ -197,3 +197,4 @@ class WeddingGallery {
 document.addEventListener('DOMContentLoaded', () => {
   window.WeddingGallery = new WeddingGallery();
 });
+

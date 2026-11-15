@@ -192,3 +192,4 @@ class WeddingEnvelope {
 document.addEventListener('DOMContentLoaded', () => {
   window.WeddingEnvelope = new WeddingEnvelope();
 });
+

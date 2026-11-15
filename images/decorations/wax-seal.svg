@@ -77,9 +77,10 @@
     <path d="M140 100 C142 82, 130 66, 115 58 C117 66, 125 75, 126 85 C127 95, 123 105, 120 114 C128 110, 137 106, 140 100 Z" fill="#502B0A" opacity="0.4"/>
     
     <!-- Couple Monogram -->
-    <text x="100" y="112" font-family="'Cinzel', 'Playfair Display', 'Cormorant Garamond', serif" font-size="34" font-weight="700" letter-spacing="2">A&amp;S</text>
+    <text x="100" y="112" font-family="'Cinzel', 'Playfair Display', 'Cormorant Garamond', serif" font-size="32" font-weight="700" letter-spacing="2">Y&amp;M</text>
   </g>
 
   <!-- Small botanical star / diamond at bottom -->
   <polygon points="100,126 103,132 109,132 104,136 106,142 100,138 94,142 96,136 91,132 97,132" fill="#DFC07E" opacity="0.7"/>
 </svg>
+

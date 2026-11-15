@@ -212,3 +212,4 @@ class WeddingMusic {
 document.addEventListener('DOMContentLoaded', () => {
   window.WeddingMusic = new WeddingMusic();
 });
+
